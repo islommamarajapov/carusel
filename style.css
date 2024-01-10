@@ -1,0 +1,208 @@
+/* ---------------------default css---------- */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+main{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    box-shadow:  0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.item{
+    transition: all 0.4s ease-in-out;
+}
+
+.item{
+    width: 200px;
+    height: 300px;
+    list-style-type: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    background-position: center;
+    background-size: cover;
+    border-radius: 20px;
+    box-shadow: 0 20px 30px rgba(255, 255, 255, 0.3) inset;
+    transition: transform 0.1s, left 0.75s, top 0.75s, width 0.75, height 0.75s;
+  
+
+    &:nth-child(1),
+    &:nth-child(2) {
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        transform: none;
+        border-radius: 0;
+        box-shadow: none;
+        opacity: 1;
+    }
+
+    &:nth-child(3){
+        left: 50%;
+    }
+
+    &:nth-child(4){
+        left: calc(50% + 220px);
+    }
+
+    &:nth-child(5){
+        left: calc(50% + 440px);
+    }
+
+    &:nth-child(6){
+        left: calc(50% + 660px);
+        opacity: 0;
+    }
+
+    &:hover{
+        box-shadow: 0 0 60px rgba(255, 255, 255, 0.5);
+    }
+}
+.content{
+    width: min(50vh, 400px);
+    position: absolute;
+    top: 50%;
+    left: 3rem;
+    transform: translateY(-50%);
+    font: 400 0.85rem helvetica , sans-serif;
+    color: white;
+    text-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    display: none;
+    user-select: none;
+
+    &.title{
+        font-family: 'arial-black';
+        text-transform: uppercase;
+        line-height: 10px;
+    }
+
+    & .description{
+        line-height: 2;
+        margin: 1rem 0  1.9rem;
+        font-size: 0.8rem;
+    }
+
+    & button{
+        width: fit-content;
+        background-color: rgba(0, 0, 0, 0.1);
+        color: white;
+        border: 2px solid white;
+        border-radius: 0.25rem;
+        padding: 0.75rem;
+        cursor: pointer;
+
+        &:hover{
+            background-color: white;
+            color: black;
+            font-weight: 600;
+        }
+    }
+}
+
+.item:nth-of-type(2) .content {
+    display: block;
+    animation: show 0.75s ease-in-out 0.3s forwards;
+}
+@keyframes show {
+    0%{
+        filter: blur(5px);
+        transform: translateY(calc(-50% + 75px));
+    }
+    100%{
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+
+
+/* ---------------------- nav ------------------------ */
+.nav{
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    user-select: none;
+
+    & .btn{
+        background-color: rgba(255, 255, 255, 0.5);
+        color: rgba(0, 0, 0, 0.7);
+        border: 2px solid rgba(0, 0, 0, 0.6);
+        margin: 0  0.25rem;
+        padding: 0.75rem;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 22px;
+
+        &:hover{
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+    }
+}
+
+/* ---------------------- responsive ------------------ */
+
+@media (width < 650px) {
+    .content{
+        & .title{
+            font-size: 0.9rem;
+        }
+        & .description {
+            font-size: 0.65rem;
+        }
+        & button{
+            font-size: 0.7rem;
+        }
+    }
+    .item{
+        width: 130px;
+        height: 220px;
+
+        &:nth-child(3){
+            left: 50%;
+        }
+        &:nth-child(4){
+            left: calc(50% + 140px);
+        }
+        &:nth-child(5){
+            left: calc(50% + 280px);
+        }
+        &:nth-child(6){
+            left: calc(50% + 420px);
+            opacity: 0;
+        }
+    }
+}
+
+/* -----------------------slider images--------------- */
+.item-1{
+    background-image: url(./images/5bd1288534df1-wallpaper-preview.jpg);
+}
+.item-2{
+    background-image: url(./images/forest-landscape_71767-127.avif);
+}
+.item-3{
+    background-image: url(./images/Lake-Maligne-island-mist-mountains-background-9502-730x456.jpg);
+}
+.item-4{
+    background-image: url(./images/mountain-lake-with-mountain-background_865967-416815.avif);
+}
+.item-5{
+    background-image: url(./images/sunset-with-mountain-background_820340-6623.avif);
+}
+.item-6{
+    background-image: url(./images/landscape-lake-water-trees-mountains-rock-glacier-national-park-poster-wallpaper-preview.jpg);
+}
